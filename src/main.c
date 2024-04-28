@@ -91,9 +91,10 @@ void veriOku(const char *dosyaAdi, Canli ***nesneler, int *index) {
         printf("Dosya acilamadi.\n");
         exit(1);
     }
-
+    int sayac=0;
     int sayi;
     while (fscanf(dosya, "%d", &sayi) != EOF) {
+        sayac++;
         if (sayi >= 1 && sayi <= 9) { // Bitki
             *nesneler = (Canli**)realloc(*nesneler, (*index + 1) * sizeof(Canli*));
             (*nesneler)[*index] = (Canli*)bitkiOlustur(sayi);
@@ -111,21 +112,58 @@ void veriOku(const char *dosyaAdi, Canli ***nesneler, int *index) {
             (*nesneler)[*index] = (Canli*)pireOlustur(sayi);
             (*index)++;
         }
+        
     }
 
+    
     fclose(dosya); // Dosyayı kapat
+}
+int dosyadakiElemanSayisiniHesapla(const char *dosyaAdi) {
+    FILE *dosya;
+    dosya = fopen(dosyaAdi, "r");
+    if (dosya == NULL) {
+        printf("Dosya açma hatasi");
+        return -1;
+    }
+
+    int sayiAdedi = 0;
+    int sayi;
+    while (fscanf(dosya, "%d", &sayi) != EOF) {
+        sayiAdedi++;
+    }
+
+    fclose(dosya);
+    return sayiAdedi;
 }
 int main() {
     Canli **nesneler = NULL;
     int index = 0;
     veriOku("veriler.txt", &nesneler, &index);
 
-    // Oluşturulan nesneleri ekrana yazdır
+   
     for (int i = 0; i < index; ++i) {
         nesneler[i]->gorunum(nesneler[i]);
     }
     
-    // Oluşturulan nesnelerin belleklerini serbest bırak
+    const char *dosyaAdi = "veriler.txt";
+    int elemanSayisi = dosyadakiElemanSayisiniHesapla(dosyaAdi); 
+    
+    char *dizi = (char *)malloc(elemanSayisi * sizeof(char));
+    if (dizi == NULL) {
+        printf("Bellek ayirma hatasi!");
+        return 1;
+    }
+    for (int i = 0; i < elemanSayisi; ++i) {
+        dizi[i]=nesneler[i]->sembol;
+        printf("%c",dizi[i]);
+    }
+    
+    printf("%d",elemanSayisi);
+    
+    printf("\n");
+
+
+   
     for (int i = 0; i < index; ++i) {
         free(nesneler[i]);
     }
@@ -133,3 +171,4 @@ int main() {
     
     return 0;
 }
+
