@@ -1,49 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Canli sınıfı
+
 typedef struct Canli {
-    int veri;    // Veri
-    char sembol; // Canlinin sembolu
-    void (*gorunum)(struct Canli *); // Canlinin görünümünü yazdıracak fonksiyon işaretçisi
+    int veri;    
+    char sembol; 
+    void (*gorunum)(struct Canli *); 
 } Canli;
 
-// Bitki sınıfı, Canli sınıfından kalıtım alır
+
 typedef struct {
-    Canli canli; // Canli sınıfı
+    Canli canli; 
 } Bitki;
 
-// Bocek sınıfı, Canli sınıfından kalıtım alır
+
 typedef struct {
-    Canli canli; // Canli sınıfı
+    Canli canli; 
 } Bocek;
 
-// Pire sınıfı, Bocek sınıfından dolaylı olarak Canli sınıfından kalıtım alır
+
 typedef struct {
-    Bocek bocek; // Bocek sınıfı
+    Bocek bocek; 
 } Pire;
 
-// Sinek sınıfı, Bocek sınıfından dolaylı olarak Canli sınıfından kalıtım alır
+
 typedef struct {
-    Bocek bocek; // Bocek sınıfı
+    Bocek bocek; 
 } Sinek;
 
-// Bitki nesnesi oluşturacak fonksiyon
+
 void bitkiOlustur(Bitki *);
 
-// Bocek nesnesi oluşturacak fonksiyon
+
 void bocekOlustur(Bocek *);
 
-// Pire nesnesi oluşturacak fonksiyon
+
 void pireOlustur(Pire *);
 
-// Sinek nesnesi oluşturacak fonksiyon
 void sinekOlustur(Sinek *);
 
-// Canlinin görünümünü ekrana yazdıracak fonksiyon
 void gorunumYazdir(Canli *);
 
-// Verileri okuyup uygun sınıf nesnelerini oluşturacak fonksiyon
 void veriOku(const char *dosyaAdi);
 
 
@@ -81,17 +78,17 @@ void veriOku(const char *dosyaAdi) {
 
     int sayi;
     while (fscanf(dosya, "%d", &sayi) != EOF) {
-        if (sayi >= 1 && sayi <= 9) { // Bitki
+        if (sayi >= 1 && sayi <= 9) {
             Bitki bitki;
             bitkiOlustur(&bitki);
             bitki.canli.veri = sayi;
             bitki.canli.gorunum(&bitki.canli);
-        } else if (sayi >= 10 && sayi <= 20) { // Bocek
+        } else if (sayi >= 10 && sayi <= 20) { 
             Bocek bocek;
             bocekOlustur(&bocek);
             bocek.canli.veri = sayi;
             bocek.canli.gorunum(&bocek.canli);
-        } else if (sayi >= 21 && sayi <= 50) { // Sinek
+        } else if (sayi >= 21 && sayi <= 50) { 
             Sinek sinek;
             sinekOlustur(&sinek);
             sinek.bocek.canli.veri = sayi;
@@ -104,7 +101,7 @@ void veriOku(const char *dosyaAdi) {
         }
     }
 
-    fclose(dosya); // Dosyayı kapat
+    fclose(dosya); 
 }
 int main() {
     veriOku("veriler.txt");
