@@ -69,7 +69,7 @@ void veriOku(const char *dosyaAdi) {
         }
 
         
-        printf("%c(%d) ", canli->sembol, canli->veri);
+        printf("%c ", canli->sembol);
 
         free(canli); // Bellek temizleme
     }
