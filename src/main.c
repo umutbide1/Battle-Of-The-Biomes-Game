@@ -53,6 +53,7 @@ Bitki* bitkiOlustur(int veri) {
     bitki->canli.sembol = 'B';
     bitki->canli.gorunum = gorunumYazdir;
     return bitki;
+    
 }
 
 Bocek* bocekOlustur(int veri) {
@@ -69,6 +70,7 @@ Pire* pireOlustur(int veri) {
     pire->bocek.canli.sembol = 'P';
     pire->bocek.canli.gorunum = gorunumYazdir;
     return pire;
+    
 }
 
 Sinek* sinekOlustur(int veri) {
