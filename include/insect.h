@@ -3,9 +3,11 @@
 
 #include "live.h"
 typedef struct Bocek {
-    Canli canli; // Canli sınıfı
+    Canli super; // Canli sınıfı
 } Bocek;
 
+// Bocek nesnesi oluşturacak fonksiyon
+Bocek* bocekOlustur(int veri);
 
 
 

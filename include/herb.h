@@ -1,10 +1,13 @@
 #ifndef BITKI_HPP
 #define BITKI_HPP
 #include "live.h"
+
 typedef struct Bitki{
-    Canli canli; // Canli sınıfı
+    Canli super; // Canli sınıfı
 } Bitki;
 
+// Bitki nesnesi oluşturacak fonksiyon
+Bitki* bitkiOlustur(int veri);
 
 
 

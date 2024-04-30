@@ -10,4 +10,7 @@ typedef struct Canli {
     void (*gorunum)(struct Canli *); // Canlinin görünümünü yazdıracak fonksiyon işaretçisi
 } Canli;
 
+void gorunumYazdir(Canli *);
+
+
 #endif

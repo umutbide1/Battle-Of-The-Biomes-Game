@@ -5,9 +5,11 @@
 #include "live.h"
 
 typedef struct Sinek {
-    Bocek bocek; // Bocek sınıfı
+    Bocek super; // Bocek sınıfı
 } Sinek;
 
+// Sinek nesnesi oluşturacak fonksiyon
+Sinek* sinekOlustur(int veri);
 
 
 
