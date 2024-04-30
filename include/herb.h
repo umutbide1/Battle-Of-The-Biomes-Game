@@ -1,7 +1,12 @@
-#ifndef HERB_HPP_
-#define HERB_HPP_
+#ifndef BITKI_HPP
+#define BITKI_HPP
 #include "live.h"
-typedef struct {
+#include "flea.h"
+#include "habitat.h"
+#include "housefly.h"
+#include "insect.h"
+
+typedef struct Bitki{
     Canli canli; // Canli sınıfı
 } Bitki;
 

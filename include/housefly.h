@@ -1,8 +1,14 @@
-#ifndef HOUSEFLY_HPP_
-#define HOUSEFLY_HPP_
+#ifndef SINEK_HPP
+#define SINEK_HPP
+
+#include "herb.h"
+#include "flea.h"
+#include "habitat.h"
+#include "insect.h"
+#include "live.h"
 
 
-typedef struct {
+typedef struct Sinek {
     Bocek bocek; // Bocek sınıfı
 } Sinek;
 

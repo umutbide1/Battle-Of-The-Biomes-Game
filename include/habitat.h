@@ -1,5 +1,5 @@
-#ifndef HABITAT_HPP_
-#define HABITAT_HPP_
+#ifndef HABITAT_HPP
+#define HABITAT_HPP
 
 
 

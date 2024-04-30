@@ -1,9 +1,16 @@
-#ifndef INSECT_HPP_
-#define INSECT_HPP_
+#ifndef BOCEK_HPP
+#define BOCEK_HPP
+#include "herb.h"
+#include "flea.h"
+#include "habitat.h"
+#include "housefly.h"
+#include "live.h"
 
 
 
-typedef struct {
+
+
+typedef struct Bocek {
     Canli canli; // Canli sınıfı
 } Bocek;
 
