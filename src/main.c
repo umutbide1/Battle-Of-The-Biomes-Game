@@ -27,6 +27,9 @@ int main() {
     for (int i = 0; i < elemanSayisi; ++i) {
         dizi[i]=nesneler[i]->sembol;
         printf("%c",dizi[i]);
+        printf(" ");
+        printf("%d",nesneler[i]->veri);
+        printf("\n");
     }
     for (int i = 0; i < index; ++i) {
         free(nesneler[i]);
