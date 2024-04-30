@@ -13,12 +13,9 @@ int main() {
     Canli **nesneler = NULL;
     int index = 0;
     veriOku("veriler.txt", &nesneler, &index);
-
-   
     // for (int i = 0; i < index; ++i) {
     //     nesneler[i]->gorunum(nesneler[i]);
     // }
-    
     const char *dosyaAdi = "veriler.txt";
     int elemanSayisi = dosyadakiElemanSayisiniHesapla(dosyaAdi); 
     
@@ -31,13 +28,6 @@ int main() {
         dizi[i]=nesneler[i]->sembol;
         printf("%c",dizi[i]);
     }
-    
-    
-    
-    printf("\n");
-
-
-   
     for (int i = 0; i < index; ++i) {
         free(nesneler[i]);
     }
