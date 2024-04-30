@@ -1,32 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "herb.h"
+#include "flea.h"
+#include "habitat.h"
+#include "housefly.h"
+#include "insect.h"
+#include "live.h"
 
-// Canli sınıfı
-typedef struct Canli {
-    int veri;    // Veri
-    char sembol; // Canlinin sembolu
-    void (*gorunum)(struct Canli *); // Canlinin görünümünü yazdıracak fonksiyon işaretçisi
-} Canli;
-
-// Bitki sınıfı, Canli sınıfından kalıtım alır
-typedef struct {
-    Canli canli; // Canli sınıfı
-} Bitki;
-
-// Bocek sınıfı, Canli sınıfından kalıtım alır
-typedef struct {
-    Canli canli; // Canli sınıfı
-} Bocek;
-
-// Pire sınıfı, Bocek sınıfından dolaylı olarak Canli sınıfından kalıtım alır
-typedef struct {
-    Bocek bocek; // Bocek sınıfı
-} Pire;
-
-// Sinek sınıfı, Bocek sınıfından dolaylı olarak Canli sınıfından kalıtım alır
-typedef struct {
-    Bocek bocek; // Bocek sınıfı
-} Sinek;
 
 // Bitki nesnesi oluşturacak fonksiyon
 Bitki* bitkiOlustur(int veri);

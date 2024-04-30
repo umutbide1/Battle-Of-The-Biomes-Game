@@ -2,7 +2,9 @@
 #define FLEA_HPP_
 
 
-
+typedef struct {
+    Bocek bocek; // Bocek sınıfı
+} Pire;
 
 
 
