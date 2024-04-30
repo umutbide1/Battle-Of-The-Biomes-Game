@@ -36,4 +36,4 @@ int main() {
     return 0;
 }
 
-//
+//Son durum Savaş fonksiyonunda kaldım bugunlük bu kadar yeter :)
