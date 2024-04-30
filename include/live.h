@@ -2,11 +2,6 @@
 #ifndef CANLI_HPP
 #define CANLI_HPP
 
-#include "herb.h"
-#include "flea.h"
-#include "habitat.h"
-#include "housefly.h"
-#include "insect.h"
 
 
 typedef struct Canli {

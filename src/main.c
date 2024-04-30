@@ -61,9 +61,7 @@ Sinek* sinekOlustur(int veri) {
     return sinek;
 }
 
-void gorunumYazdir(Canli *canli) {
-    printf("%c ", canli->sembol);
-}
+
 
 void veriOku(const char *dosyaAdi, Canli ***nesneler, int *index) {
     FILE *dosya = fopen(dosyaAdi, "r");
