@@ -6,26 +6,9 @@
 #include "housefly.h"
 #include "insect.h"
 #include "live.h"
+#include "numberOfElements.h"
 
 
-
-int dosyadakiElemanSayisiniHesapla(const char *dosyaAdi) {
-    FILE *dosya;
-    dosya = fopen(dosyaAdi, "r");
-    if (dosya == NULL) {
-        printf("Dosya açma hatasi");
-        return -1;
-    }
-
-    int sayiAdedi = 0;
-    int sayi;
-    while (fscanf(dosya, "%d", &sayi) != EOF) {
-        sayiAdedi++;
-    }
-
-    fclose(dosya);
-    return sayiAdedi;
-}
 int main() {
     Canli **nesneler = NULL;
     int index = 0;
