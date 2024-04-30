@@ -15,9 +15,9 @@ int main() {
     veriOku("veriler.txt", &nesneler, &index);
 
    
-    for (int i = 0; i < index; ++i) {
-        nesneler[i]->gorunum(nesneler[i]);
-    }
+    // for (int i = 0; i < index; ++i) {
+    //     nesneler[i]->gorunum(nesneler[i]);
+    // }
     
     const char *dosyaAdi = "veriler.txt";
     int elemanSayisi = dosyadakiElemanSayisiniHesapla(dosyaAdi); 
@@ -32,7 +32,7 @@ int main() {
         printf("%c",dizi[i]);
     }
     
-    printf("%d",elemanSayisi);
+    
     
     printf("\n");
 
