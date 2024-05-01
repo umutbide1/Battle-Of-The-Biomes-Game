@@ -10,7 +10,41 @@
 #include "live.h"
 #include "numberOfElements.h"
 #include "numberOfElementsInRow.h"
+void savas(char *semboller, int *degerler, int n) {
+    for (int i = 0; i < n; i++) {
+        if (semboller[i] == 'X') continue;  // Bu canlı ölmüş ise atla
+        for (int j = i + 1; j < n; j++) {
+            if (semboller[j] == 'X') continue;  // Bu canlı ölmüş ise atla
+            
+            char first = semboller[i], second = semboller[j];
+            int winner = -1;  // -1 durumunda kimse kazanamaz
+            if ((first == 'C' && (second == 'B' || second == 'P')) ||
+                (first == 'B' && (second == 'P' || second == 'S')) ||
+                (first == 'S' && (second == 'P' || second == 'C'))) {
+                winner = i;
+            } else if ((second == 'C' && (first == 'B' || first == 'P')) ||
+                       (second == 'B' && (first == 'P' || first == 'S')) ||
+                       (second == 'S' && (first == 'P' || first == 'C'))) {
+                winner = j;
+            }
 
+            if (winner == -1) { // Eğer türler aynı ise veya kimse doğal olarak kazanamıyorsa
+                if (degerler[i] > degerler[j]) winner = i;
+                else if (degerler[j] > degerler[i]) winner = j;
+            }
+
+            if (winner == i) semboller[j] = 'X';
+            else if (winner == j) semboller[i] = 'X';
+        }
+
+        // Her savaş sonrası dizinin durumunu yazdır
+        printf("Durum: ");
+        for (int k = 0; k < n; k++) {
+            printf("%c ", semboller[k]);
+        }
+        printf("\n");
+    }
+}
 
 int main() {
     Canli **nesneler = NULL;
@@ -55,7 +89,7 @@ int main() {
     printf("%d",satirdakiElemanSayisi);
 
         
-
+    savas(sembollerDizisi, degerlerDizisi, 16);
 
 
 
