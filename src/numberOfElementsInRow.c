@@ -18,7 +18,7 @@ SatirElemanlari satirlariOkuVeElemanSayilariniBul(const char* dosyaAdi) {
     int satirSayisi = 0;
     int elemanSayisi;
     char *token;
-
+    
     while (fgets(line, sizeof(line), file)) {
         elemanSayisi = 0;
         token = strtok(line, " \t\n");

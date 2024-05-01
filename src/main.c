@@ -31,12 +31,12 @@ int main() {
     if (degerlerDizisi==NULL){
         printf("Sembollere karsilik gelen degerler icin bellek ayirma hatasi");
     }
-    SatirElemanlari sonuc = satirlariOkuVeElemanSayilariniBul(dosyaAdi);
-    int *satirdakiELemenlarinSayisiDizisi = (int *)malloc(sonuc.satirSayisi * sizeof(int)); // Satirdaki elemanlarin sayilarinin yazılacaği dizi
-    for (int i = 0; i < sonuc.satirSayisi; i++) {
-        satirdakiELemenlarinSayisiDizisi[i]=sonuc.elemanSayilari[i];
-        //printf("%d",satirdakiELemenlarinSayisiDizisi[i]);
-    }
+    // SatirElemanlari sonuc = satirlariOkuVeElemanSayilariniBul(dosyaAdi);
+    // int *satirdakiELemenlarinSayisiDizisi = (int *)malloc(sonuc.satirSayisi * sizeof(int)); // Satirdaki elemanlarin sayilarinin yazılacaği dizi
+    // for (int i = 0; i < sonuc.satirSayisi; i++) {
+    //     satirdakiELemenlarinSayisiDizisi[i]=sonuc.elemanSayilari[i];
+    //     //printf("%d",satirdakiELemenlarinSayisiDizisi[i]);
+    // }
     
 
     
@@ -53,24 +53,7 @@ int main() {
         //printf("%d",degerlerDizisi[i]);
         //printf(" ");
     }
-    int b=0;
-    int a=satirdakiELemenlarinSayisiDizisi[0];
-    
-    for (int i = 0; i < sizeof(satirdakiELemenlarinSayisiDizisi)/sizeof(satirdakiELemenlarinSayisiDizisi[0]); i++)
-    {
-        printf("Hello");
-        for (int j = b; j < a; j++)
-        {
-            // printf("Hello");
-            // printf(" ");
-           sembollerDizisi[j];
-        }
-        
-        b=a+1;
-        a=a+satirdakiELemenlarinSayisiDizisi[i+1];
-        printf("\n");
-    }
-    
+   
 
 
     for (int i = 0; i < index; ++i) {
@@ -78,9 +61,8 @@ int main() {
     }
     
     free(nesneler);
-    free(sonuc.elemanSayilari);
-    free(satirdakiELemenlarinSayisiDizisi);  
+    //free(sonuc.elemanSayilari);
+    //free(satirdakiELemenlarinSayisiDizisi);  
     return 0;
 }
 
-//Son durum Savaş fonksiyonunda kaldım bugunlük bu kadar yeter :)
