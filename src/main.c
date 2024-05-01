@@ -20,21 +20,34 @@ int main() {
     int elemanSayisi = dosyadakiElemanSayisiniHesapla(dosyaAdi); 
     
     char *sembollerDizisi = (char *)malloc(elemanSayisi * sizeof(char)); // Dizinin sembollerinin tutulacağı dizi
-    char *degerlerDizisi = (char *)malloc(elemanSayisi * sizeof(char)); // dizideki sembollerin karşılıkları olan degerleri tutulacağı dizi
+    int *degerlerDizisi = (int *)malloc(elemanSayisi * sizeof(int)); // dizideki sembollerin karşılıkları olan degerleri tutulacağı dizi
     if (sembollerDizisi == NULL) {
-        printf("Bellek ayirma hatasi!");
+        printf("Semboller icin bellek ayirma hatasi!");
         return 1;
     }
+    if (degerlerDizisi==NULL){
+        printf("Sembollere karsilik gelen degerler icin bellek ayirma hatasi");
+    }
 
-
-
+    
     for (int i = 0; i < elemanSayisi; ++i) {
         sembollerDizisi[i]=nesneler[i]->sembol;
         printf("%c",sembollerDizisi[i]);
-        printf(" ");
-        printf("%d",nesneler[i]->veri);
-        printf("\n");
+        printf("  ");
+        
     }
+    printf("\n");
+    for (int i = 0; i < elemanSayisi; ++i) {
+        sembollerDizisi[i]=nesneler[i]->sembol;
+        printf("%d",nesneler[i]->veri);
+        printf(" ");
+    }
+
+
+
+
+
+
     for (int i = 0; i < index; ++i) {
         free(nesneler[i]);
     }
