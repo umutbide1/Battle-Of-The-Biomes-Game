@@ -11,30 +11,41 @@
 #include "numberOfElements.h"
 #include "numberOfElementsInRow.h"
 void savas(char *semboller, int *degerler, int n) {
-    for (int i = 0; i < n; i++) {
-        if (semboller[i] == 'X') continue;  // Bu canlı ölmüş ise atla
-        for (int j = i + 1; j < n; j++) {
-            if (semboller[j] == 'X') continue;  // Bu canlı ölmüş ise atla
-            
-            char first = semboller[i], second = semboller[j];
-            int winner = -1;  // -1 durumunda kimse kazanamaz
-            if ((first == 'C' && (second == 'B' || second == 'P')) ||
-                (first == 'B' && (second == 'P' || second == 'S')) ||
-                (first == 'S' && (second == 'P' || second == 'C'))) {
-                winner = i;
-            } else if ((second == 'C' && (first == 'B' || first == 'P')) ||
-                       (second == 'B' && (first == 'P' || first == 'S')) ||
-                       (second == 'S' && (first == 'P' || first == 'C'))) {
-                winner = j;
-            }
+    int i = 0;
+    while (i < n - 1) {
+        if (semboller[i] == 'X') {
+            i++;
+            continue;  // Bu canlı ölmüş ise bir sonrakine geç
+        }
 
-            if (winner == -1) { // Eğer türler aynı ise veya kimse doğal olarak kazanamıyorsa
-                if (degerler[i] > degerler[j]) winner = i;
-                else if (degerler[j] > degerler[i]) winner = j;
-            }
+        int j = i + 1;
+        while (j < n && semboller[j] == 'X') {
+            j++;  // Ölü bir canlıyı atla ve savaşacak bir sonraki canlıyı bul
+        }
+        if (j == n) break;  // Eğer sağ kalan başka canlı yoksa döngüyü kır
 
-            if (winner == i) semboller[j] = 'X';
-            else if (winner == j) semboller[i] = 'X';
+        char first = semboller[i], second = semboller[j];
+        int winner = -1;
+        if ((first == 'C' && (second == 'B' || second == 'P')) ||
+            (first == 'B' && (second == 'P' || second == 'S')) ||
+            (first == 'S' && (second == 'P' || second == 'C'))) {
+            winner = i;
+        } else if ((second == 'C' && (first == 'B' || first == 'P')) ||
+                   (second == 'B' && (first == 'P' || first == 'S')) ||
+                   (second == 'S' && (first == 'P' || first == 'C'))) {
+            winner = j;
+        }
+
+        if (winner == -1) { // Eğer türler aynı ise veya kimse doğal olarak kazanamıyorsa
+            if (degerler[i] > degerler[j]) winner = i;
+            else if (degerler[j] > degerler[i]) winner = j;
+        }
+
+        if (winner == i) {
+            semboller[j] = 'X';  // i canlısı j'yi yedi
+        } else {
+            semboller[i] = 'X';  // j canlısı i'yi yedi, ve j canlısı devam edecek
+            i = j;  // j sıradaki savaşçı olarak devam eder
         }
 
         // Her savaş sonrası dizinin durumunu yazdır
@@ -43,9 +54,12 @@ void savas(char *semboller, int *degerler, int n) {
             printf("%c ", semboller[k]);
         }
         printf("\n");
+
+        if (winner == j) {
+            continue; // Yenilen canlı sonrası bir sonraki canlı ile devam et
+        }
     }
 }
-
 int main() {
     Canli **nesneler = NULL;
     int index = 0;
@@ -79,6 +93,7 @@ int main() {
         //printf("  ");
         
     }
+
     //printf("\n");
     for (int i = 0; i < elemanSayisi; ++i) {
         degerlerDizisi[i]=nesneler[i]->veri;
@@ -86,10 +101,10 @@ int main() {
         //printf(" ");
     }
     int satirdakiElemanSayisi=ilk_satirdaki_eleman_sayisi("veriler.txt");
-    printf("%d",satirdakiElemanSayisi);
+    //printf("%d",satirdakiElemanSayisi);
 
         
-    savas(sembollerDizisi, degerlerDizisi, 16);
+    savas(sembollerDizisi, degerlerDizisi, elemanSayisi);
 
 
 
