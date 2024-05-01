@@ -10,7 +10,7 @@
 #include "live.h"
 #include "numberOfElements.h"
 #include "numberOfElementsInRow.h"
-void savas(char *semboller, int *degerler, int n) {
+void savas(char *semboller, int *degerler, int n, int satirdakiElemanSayisi) {
     int i = 0;
     while (i < n - 1) {
         if (semboller[i] == 'X') {
@@ -50,16 +50,19 @@ void savas(char *semboller, int *degerler, int n) {
 
         // Her savaş sonrası dizinin durumunu yazdır
         printf("Durum: ");
+        printf("Durum:\n");
         for (int k = 0; k < n; k++) {
             printf("%c ", semboller[k]);
+            if ((k + 1) % satirdakiElemanSayisi == 0) {
+                printf("\n");  // Her satirdakiElemanSayisi eleman sonrası yeni satıra geç
+            }
         }
-        printf("\n");
-
-        if (winner == j) {
-            continue; // Yenilen canlı sonrası bir sonraki canlı ile devam et
+        if (n % satirdakiElemanSayisi != 0) {
+            printf("\n");
         }
     }
 }
+
 int main() {
     Canli **nesneler = NULL;
     int index = 0;
@@ -104,7 +107,7 @@ int main() {
     //printf("%d",satirdakiElemanSayisi);
 
         
-    savas(sembollerDizisi, degerlerDizisi, elemanSayisi);
+    savas(sembollerDizisi, degerlerDizisi, elemanSayisi,satirdakiElemanSayisi);
 
 
 
