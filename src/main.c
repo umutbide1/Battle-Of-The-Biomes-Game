@@ -11,39 +11,6 @@
 #include "numberOfElements.h"
 #include "numberOfElementsInRow.h"
 
-int ilk_satirdaki_eleman_sayisi(const char *dosya_adi) {
-    FILE *dosya = fopen(dosya_adi, "r");
-    if (dosya == NULL) {
-        perror("Dosya acma hatasi");
-        return -1;
-    }
-
-    // İlk satırı oku
-    char *satir = NULL;
-    size_t satir_uzunlugu = 0;
-    ssize_t okunan = getline(&satir, &satir_uzunlugu, dosya);
-    if (okunan == -1) {
-        perror("Satir okuma hatasi");
-        fclose(dosya);
-        free(satir);
-        return -1;
-    }
-
-    // Okunan satırı elemanlara ayır ve eleman sayısını bul
-    char *eleman = strtok(satir, " \t\n");
-    int eleman_sayisi = 0;
-    while (eleman != NULL) {
-        eleman_sayisi++;
-        eleman = strtok(NULL, " \t\n");
-    }
-
-    // Bellekten ayrılan yerleri serbest bırak
-    free(satir);
-    fclose(dosya);
-
-    return eleman_sayisi;
-}
-
 
 int main() {
     Canli **nesneler = NULL;
@@ -84,7 +51,14 @@ int main() {
         //printf("%d",degerlerDizisi[i]);
         //printf(" ");
     }
-    
+    int satirdakiElemanSayisi=ilk_satirdaki_eleman_sayisi("veriler.txt");
+    printf("%d",satirdakiElemanSayisi);
+
+        
+
+
+
+
 
 
     for (int i = 0; i < index; ++i) {
