@@ -19,14 +19,18 @@ int main() {
     const char *dosyaAdi = "veriler.txt";
     int elemanSayisi = dosyadakiElemanSayisiniHesapla(dosyaAdi); 
     
-    char *dizi = (char *)malloc(elemanSayisi * sizeof(char));
-    if (dizi == NULL) {
+    char *sembollerDizisi = (char *)malloc(elemanSayisi * sizeof(char)); // Dizinin sembollerinin tutulacağı dizi
+    char *degerlerDizisi = (char *)malloc(elemanSayisi * sizeof(char)); // dizideki sembollerin karşılıkları olan degerleri tutulacağı dizi
+    if (sembollerDizisi == NULL) {
         printf("Bellek ayirma hatasi!");
         return 1;
     }
+
+
+
     for (int i = 0; i < elemanSayisi; ++i) {
-        dizi[i]=nesneler[i]->sembol;
-        printf("%c",dizi[i]);
+        sembollerDizisi[i]=nesneler[i]->sembol;
+        printf("%c",sembollerDizisi[i]);
         printf(" ");
         printf("%d",nesneler[i]->veri);
         printf("\n");
