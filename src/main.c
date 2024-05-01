@@ -34,33 +34,43 @@ int main() {
     SatirElemanlari sonuc = satirlariOkuVeElemanSayilariniBul(dosyaAdi);
     int *satirdakiELemenlarinSayisiDizisi = (int *)malloc(sonuc.satirSayisi * sizeof(int)); // Satirdaki elemanlarin sayilarinin yazılacaği dizi
     for (int i = 0; i < sonuc.satirSayisi; i++) {
-        printf("Satir %d: %d eleman\n", i + 1, sonuc.elemanSayilari[i]);
         satirdakiELemenlarinSayisiDizisi[i]=sonuc.elemanSayilari[i];
-        
+        //printf("%d",satirdakiELemenlarinSayisiDizisi[i]);
     }
     
-    for (int i = 0; i < sonuc.satirSayisi; i++)
-    {
-       printf("%d",satirdakiELemenlarinSayisiDizisi[i]);
-    }
+
     
-    printf("\n");
+    //printf("\n");
     for (int i = 0; i < elemanSayisi; ++i) {
         sembollerDizisi[i]=nesneler[i]->sembol;
-        printf("%c",sembollerDizisi[i]);
-        printf("  ");
+        //printf("%c",sembollerDizisi[i]);
+        //printf("  ");
         
     }
-    printf("\n");
+    //printf("\n");
     for (int i = 0; i < elemanSayisi; ++i) {
         degerlerDizisi[i]=nesneler[i]->veri;
-        printf("%d",degerlerDizisi[i]);
-        printf(" ");
+        //printf("%d",degerlerDizisi[i]);
+        //printf(" ");
     }
-
-
-
-
+    int b=0;
+    int a=satirdakiELemenlarinSayisiDizisi[0];
+    
+    for (int i = 0; i < sizeof(satirdakiELemenlarinSayisiDizisi)/sizeof(satirdakiELemenlarinSayisiDizisi[0]); i++)
+    {
+        printf("Hello");
+        for (int j = b; j < a; j++)
+        {
+            // printf("Hello");
+            // printf(" ");
+           sembollerDizisi[j];
+        }
+        
+        b=a+1;
+        a=a+satirdakiELemenlarinSayisiDizisi[i+1];
+        printf("\n");
+    }
+    
 
 
     for (int i = 0; i < index; ++i) {
