@@ -111,7 +111,7 @@ int main() {
 
         
     savas(sembollerDizisi, degerlerDizisi, elemanSayisi,satirdakiElemanSayisi);
-
+    
 
 
 
