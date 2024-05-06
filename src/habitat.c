@@ -87,9 +87,7 @@ void savas(SavasDurumu *durum) {
             printf("%c ", semboller[k]);
             if ((k + 1) % satirdakiElemanSayisi == 0) {
                 printf("\n");  // Her satirdakiElemanSayisi eleman sonrası yeni satıra geç
-                
             }
-            
         }
         if (n % satirdakiElemanSayisi != 0) {
             printf("\n");

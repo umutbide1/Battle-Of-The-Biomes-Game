@@ -59,6 +59,8 @@
         "xutility": "cpp",
         "stdlib.h": "c",
         "stdio.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "housefly.h": "c",
+        "numberofelementsinrow.h": "c"
     }
 }
