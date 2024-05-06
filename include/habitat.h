@@ -9,10 +9,15 @@
 void veriOku(const char *dosyaAdi, Canli ***nesneler, int *index); // Fonksiyonun imzası
 
 
+typedef struct {
+    char *semboller;
+    int *degerler;
+    int elemanSayisi;
+    int satirdakiElemanSayisi;
+} SavasDurumu;
 
+void savas(SavasDurumu *durum);
 
-
-
-
+int hazirlaVeriler(const char *dosyaAdi, SavasDurumu *durum) ;
 
 #endif
