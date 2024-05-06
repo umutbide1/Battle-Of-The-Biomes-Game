@@ -81,12 +81,15 @@ void savas(SavasDurumu *durum) {
         }
 
         // Her savaş sonrası dizinin durumunu yazdır
+        system("cls");
         printf("Durum:\n");
         for (int k = 0; k < n; k++) {
             printf("%c ", semboller[k]);
             if ((k + 1) % satirdakiElemanSayisi == 0) {
                 printf("\n");  // Her satirdakiElemanSayisi eleman sonrası yeni satıra geç
+                
             }
+            
         }
         if (n % satirdakiElemanSayisi != 0) {
             printf("\n");
