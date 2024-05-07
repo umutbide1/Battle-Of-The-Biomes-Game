@@ -23,7 +23,7 @@ int main() {
     }
 
     savas(&durum);
-
+    // odev sonu 
     free(durum.semboller);
     free(durum.degerler);
     return EXIT_SUCCESS;
