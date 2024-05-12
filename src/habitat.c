@@ -43,7 +43,24 @@ void savas(SavasDurumu *durum) {
     int n = durum->elemanSayisi;
     int satirdakiElemanSayisi = durum->satirdakiElemanSayisi;
     int i = 0;
+    int ifCountPerIteration;
+    int sonKazananKonumu;
+    int ifCalismaSayisi;
+    char enSonKazananCanli;
+
+    for (int k = 0; k < n; k++) {
+            printf("%c ", semboller[k]);
+            if ((k + 1) % satirdakiElemanSayisi == 0) {
+                printf("\n");
+            }
+        }
+        if (n % satirdakiElemanSayisi != 0) {
+            printf("\n");
+            
+        }
+    getchar();
     while (i < n - 1) {
+        ifCountPerIteration = 0;
         if (semboller[i] == 'X') {
             i++;
             continue;  // Bu canlı ölmüş ise bir sonrakine geç
@@ -77,23 +94,41 @@ void savas(SavasDurumu *durum) {
             semboller[j] = 'X';  // i canlısı j'yi yedi
         } else {
             semboller[i] = 'X';  // j canlısı i'yi yedi, ve j canlısı devam edecek
-            i = j;  // j sıradaki savaşçı olarak devam eder
+            i = j;  // j sıradaki savaşçı    olarak devam eder
         }
-
-        // Her savaş sonrası dizinin durumunu yazdır
+        enSonKazananCanli = semboller[winner];
+        // Her savaş sonrası dizinin durumunu ve kazanan canlıyı yazdır
         system("cls");
-        printf("Durum:\n");
+        //printf("Durum:\n");
         for (int k = 0; k < n; k++) {
             printf("%c ", semboller[k]);
             if ((k + 1) % satirdakiElemanSayisi == 0) {
-                printf("\n");  // Her satirdakiElemanSayisi eleman sonrası yeni satıra geç
+                printf("\n");
+                ifCountPerIteration++;
             }
         }
         if (n % satirdakiElemanSayisi != 0) {
             printf("\n");
+            
         }
+        //printf("%d. indisindeki '%c' canlisi kazandi.\n", winner, semboller[winner]);
+        sonKazananKonumu = winner;
+        
+        //printf("if komutu %d kez calisti.\n", ifCountPerIteration);
+        
+        ifCalismaSayisi=ifCountPerIteration-1;
+        
     }
+    // printf("%d\n",(sonKazananKonumu%satirdakiElemanSayisi));
+    // printf("%d\n",ifCalismaSayisi);
+    // printf("Kazanan: %c\n", enSonKazananCanli ,"%d\n",(sonKazananKonumu%satirdakiElemanSayisi),"%d\n",ifCalismaSayisi);
+    printf("Kazanan: %c : (%d, %d)\n", enSonKazananCanli, ifCalismaSayisi, sonKazananKonumu % satirdakiElemanSayisi);
+
+    
+    
 }
+
+
 int hazirlaVeriler(const char *dosyaAdi, SavasDurumu *durum) {
     Canli **nesneler = NULL;
     int index = 0;
