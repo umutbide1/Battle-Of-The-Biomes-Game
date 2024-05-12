@@ -1,7 +1,7 @@
 #include "insect.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "live.h"
 Bocek* bocekOlustur(int veri) {
     Bocek *bocek = (Bocek*)malloc(sizeof(Bocek));
     bocek->super.veri = veri;
@@ -9,6 +9,6 @@ Bocek* bocekOlustur(int veri) {
     bocek->super.gorunum = gorunumYazdir;
     return bocek;
 }
-void gorunumYazdirBocek(Bocek *canli) {
-    printf("%c ", canli->super.sembol);
+void gorunumYazdirBocek(struct Bocek *bocek) {
+    printf("%c ", bocek->super.sembol);
 }

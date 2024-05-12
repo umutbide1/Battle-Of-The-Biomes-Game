@@ -1,7 +1,8 @@
 #include "flea.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "insect.h"
+#include "live.h"
 Pire* pireOlustur(int veri) {
     Pire *pire = (Pire*)malloc(sizeof(Pire));
     pire->super.super.veri = veri;
@@ -10,6 +11,6 @@ Pire* pireOlustur(int veri) {
     return pire;
     
 }
-void gorunumYazdirPire(Pire *canli) {
-    printf("%c ", canli->super.super.sembol);
+void gorunumYazdirPire(struct Pire *pire) {
+    printf("%c ", pire->super.super.sembol);
 }

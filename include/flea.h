@@ -3,6 +3,7 @@
 
 #include "insect.h"
 typedef struct Pire { // Pire structi
+    
     Bocek super; 
 } Pire;
 
