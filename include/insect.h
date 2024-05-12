@@ -14,3 +14,4 @@ void gorunumYazdirBocek(Bocek *);
 
 
 #endif
+
