@@ -10,7 +10,7 @@ typedef struct Sinek {
 
 // Sinek nesnesi oluşturacak fonksiyon
 Sinek* sinekOlustur(int veri);
-
+void gorunumYazdirSinek(Sinek *);
 
 
 

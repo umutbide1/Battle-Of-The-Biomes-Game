@@ -8,7 +8,7 @@ typedef struct Bocek {
 
 // Bocek nesnesi oluşturacak fonksiyon
 Bocek* bocekOlustur(int veri);
-
+void gorunumYazdirBocek(Bocek *);
 
 
 

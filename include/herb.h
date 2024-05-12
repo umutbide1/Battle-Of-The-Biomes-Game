@@ -8,7 +8,7 @@ typedef struct Bitki{
 
 // Bitki nesnesi oluşturacak fonksiyon
 Bitki* bitkiOlustur(int veri);
-
+void gorunumYazdirBitki(Bitki *);
 
 
 

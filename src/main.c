@@ -15,7 +15,7 @@
 
 
 int main() {
-        const char *dosyaAdi = "veriler.txt";
+    const char *dosyaAdi = "veriler.txt";
     SavasDurumu durum;
     if (hazirlaVeriler(dosyaAdi, &durum) != 0) {
         fprintf(stderr, "Bellek ayirma hatasi veya dosya okuma hatasi!");

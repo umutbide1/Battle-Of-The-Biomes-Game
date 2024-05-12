@@ -7,7 +7,7 @@ typedef struct Pire { // Pire structi
 } Pire;
 
 Pire* pireOlustur(int veri); // Pire oluşturmak üzere çalışacak fonksiyon
-
+void gorunumYazdirPire(Pire *);
 
 
 
