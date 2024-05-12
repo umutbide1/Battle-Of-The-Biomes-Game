@@ -9,3 +9,6 @@ Bocek* bocekOlustur(int veri) {
     bocek->super.gorunum = gorunumYazdir;
     return bocek;
 }
+void gorunumYazdirBocek(Bocek *canli) {
+    printf("%c ", canli->super.sembol);
+}

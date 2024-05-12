@@ -10,3 +10,6 @@ Pire* pireOlustur(int veri) {
     return pire;
     
 }
+void gorunumYazdirPire(Pire *canli) {
+    printf("%c ", canli->super.super.sembol);
+}

@@ -9,3 +9,6 @@ Bitki* bitkiOlustur(int veri) {
     return bitki;
     
 }
+void gorunumYazdirBitki(Bitki *canli) {
+    printf("%c ", canli->super.sembol);
+}
